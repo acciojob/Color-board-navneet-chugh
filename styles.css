@@ -1,1 +1,26 @@
 /*  your css code here. If applicable */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(20, 40px); /* Adjust the number of columns as needed */
+  gap: 2px;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.box:hover {
+  background-color: #ffcc00; /* Change the color on hover */
+}
