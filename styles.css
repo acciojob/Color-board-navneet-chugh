@@ -8,13 +8,13 @@ body {
   background-color: #f0f0f0;
 }
 
-.board {
+.container {
   display: grid;
   grid-template-columns: repeat(20, 40px); /* Adjust the number of columns as needed */
   gap: 2px;
 }
 
-.box {
+.square {
   width: 40px;
   height: 40px;
   background-color: #ffffff;
