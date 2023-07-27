@@ -1,26 +1,28 @@
-// Function to generate a random color in hexadecimal format
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+//your JS code here. If required.
+document.body.onload = createBoxes();
+
+function createBoxes() {
+  const container = document.getElementById("container");
+  for (let i = 1; i <= 800; i++) {
+    const box = document.createElement("div");
+    const id = `box${i}`;
+    box.className = "square";
+    box.id = id;
+    box.onmouseover = () => handleHoverEnter(id);
+    box.onmouseout = () => handleHoverLeave(id);
+    container.appendChild(box);
   }
-  return color;
 }
 
-// Function to reset the box color after 1 second
-function resetColor(event) {
+function handleHoverEnter(id) {
+  const box = document.getElementById(id);
+  box.style.background = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(
+    Math.random() * 255
+  )}, ${Math.floor(Math.random() * 255)})`;
+}
+function handleHoverLeave(id) {
+  const box = document.getElementById(id);
   setTimeout(() => {
-    event.target.style.backgroundColor = "#ccc";
+    box.style.backgroundColor = "rgb(29, 29, 29)";
   }, 1000);
 }
-
-// Add event listener to each box to change color on hover
-const squares = document.querySelectorAll('.square');
-squares.forEach((square) => {
-  square.addEventListener('mouseover', (event) => {
-    const color = getRandomColor();
-    event.target.style.backgroundColor = color;
-    resetColor(event);
-  });
-});
